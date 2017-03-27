@@ -29,5 +29,4 @@ corresponding `JNI.createStaticMethod(...)` call in `NativeFunctions.hx`.
   
 ### Contributions
 
-Thank you to [alagator](https://github.com/alagatar) for contributing `wakeUp()`!
-Thank you to [ktravis] (https://github.com/ktravis/haxe-hardware) for extension sample
+Thank you to [alagator](https://github.com/alagatar) for contributing `wakeUp()` and to [ktravis](https://github.com/ktravis/haxe-hardware) for extension sample !
