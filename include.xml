@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<ndll name="nativefunctions" />
+	
+	<!-- Use the following for an Android Java extension, not needed otherwise -->
+	
+	<dependency name="nativefunctions" path="dependencies/android" if="android" />
+	<android extension="com.gerantech.extension.NativeFunctions" />
+	
+</project>

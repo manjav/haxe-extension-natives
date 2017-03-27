@@ -1,0 +1,13 @@
+{
+  "name": "extension-nativefunctions",
+  "url": "",
+  "license": "MIT",
+  "tags": ["android","games","openfl","awake","vibrate","intent"],
+  "description": "",
+  "version": "1.0.0",
+  "releasenote": "",
+  "contributors": ["manjav"],
+  "dependencies": {
+
+  }
+}
