@@ -48,9 +48,7 @@ import org.haxe.extension.Extension;
    */
 public class NativeFunctions extends Extension 
 {
-    public static Point size;
-
-    private static KeyguardLock keyguardLock=null;
+    private static KeyguardLock keyguardLock = null;
 
     public static void vibrate(int duration)
     {
@@ -72,16 +70,6 @@ public class NativeFunctions extends Extension
             keyguardLock = keyguardManager.newKeyguardLock(Activity.KEYGUARD_SERVICE); 
         }
         keyguardLock.disableKeyguard();
-    }
-
-    public static int getScreenHeight()
-    {
-        return size.y;
-    }
-
-    public static int getScreenWidth()
-    {
-        return size.x;
     }
 
     /**
@@ -148,9 +136,6 @@ public class NativeFunctions extends Extension
     */
     public void onStart () 
     {
-        Display display = mainActivity.getWindowManager().getDefaultDisplay();
-        size = new Point();
-        display.getSize(size);
     }
 
     /**
