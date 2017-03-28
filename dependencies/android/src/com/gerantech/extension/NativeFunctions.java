@@ -1,23 +1,16 @@
 package com.gerantech.extension;
 
-import android.os.Vibrator;
-import android.graphics.Point;
-import android.view.Display;
+import org.haxe.extension.Extension;
 
 import android.app.Activity;
-import android.content.res.AssetManager;
+import android.app.KeyguardManager;
+import android.app.KeyguardManager.KeyguardLock;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.View;
-
-import android.app.KeyguardManager;
-import android.app.KeyguardManager.KeyguardLock;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
-
-import org.haxe.extension.Extension;
+import android.os.Vibrator;
 
 
 /* 
@@ -66,9 +59,8 @@ public class NativeFunctions extends Extension
 
         KeyguardManager keyguardManager = (KeyguardManager) mainActivity.getSystemService(Activity.KEYGUARD_SERVICE); 
         if(keyguardLock == null)
-        {
             keyguardLock = keyguardManager.newKeyguardLock(Activity.KEYGUARD_SERVICE); 
-        }
+
         keyguardLock.disableKeyguard();
     }
 
