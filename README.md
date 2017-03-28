@@ -6,7 +6,7 @@ Simple OpenFL extension for accessing android native methods.
 Currently implements methods to use the android vibrator and access screen
 dimensions.
 
-Install via `haxelib git haxe-extension-nativefunctions https://github.com/manjav/extension-nativefunctions`
+Install via `haxelib git extension-nativefunctions https://github.com/manjav/haxe-extension-nativefunctions`
 
 Add to `project.xml`:
 
