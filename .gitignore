@@ -44,8 +44,5 @@ captures/
 # Keystore files
 *.jks
 
-#Haxe java lib
-dependencies/android/src/org/haxe/
-
 # Haxe files
 *.dev

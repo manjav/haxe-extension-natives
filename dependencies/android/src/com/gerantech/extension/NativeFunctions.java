@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.os.Vibrator;
+import android.widget.Toast;
 
 
 /* 
@@ -64,6 +65,28 @@ public class NativeFunctions extends Extension
         keyguardLock.disableKeyguard();
     }
 
+    
+    public static void toast(final String text, final int duration)
+    {
+    	try 
+		{
+    		mainActivity.runOnUiThread(new Runnable() {
+    			public void run() {
+    				Toast.makeText(mainContext, text, duration).show();	
+    			}
+    		});
+		} 
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+    }
+    
+    
+    
+    
+    
+    
     /**
     * Called when an activity you launched exits, giving you the requestCode 
     * you started it with, the resultCode it returned, and any additional data 
