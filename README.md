@@ -12,7 +12,6 @@ Install via
 Add to `project.xml`:
 
 ```xml
-<haxelib name="openfl" />
 <haxelib name="extension-nativefunctions" if="android" />
 ```
 
