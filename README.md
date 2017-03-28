@@ -7,8 +7,8 @@ Currently implements methods to use the android vibrator and access screen
 dimensions.
 
 Install via 
-`haxelib git extension-nativefunctions https://github.com/manjav/haxe-extension-nativefunctions
-haxelib dev extension-nativefunctions C:\HaxeToolkit\haxe\lib\extension-nativefunctions`
+`haxelib git extension-nativefunctions https://github.com/manjav/haxe-extension-nativefunctions`
+
 Add to `project.xml`:
 
 ```xml
