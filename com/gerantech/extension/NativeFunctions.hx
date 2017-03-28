@@ -1,5 +1,7 @@
 package com.gerantech.extension;
 
+import com.gerantech.extension.enums.ToastDuration;
+
 #if cpp
 	import cpp.Lib;
 #elseif neko

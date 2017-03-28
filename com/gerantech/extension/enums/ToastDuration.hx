@@ -1,4 +1,4 @@
-package com.gerantech.extension;
+package com.gerantech.extension.enums;
 
 /**
  * ...
