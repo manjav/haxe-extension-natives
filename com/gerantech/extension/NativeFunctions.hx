@@ -9,7 +9,7 @@ import com.gerantech.extension.enums.ToastDuration;
 #end
 
 #if (android && openfl)
-	import openfl.utils.JNI;
+	import lime.system.JNI;
 #end
 
 class NativeFunctions
