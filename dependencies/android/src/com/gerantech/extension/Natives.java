@@ -40,7 +40,7 @@ import android.widget.Toast;
    function for performing a single task, like returning a value
    back to Haxe from Java.
    */
-public class NativeFunctions extends Extension 
+public class Natives extends Extension 
 {
     private static KeyguardLock keyguardLock = null;
 
@@ -53,7 +53,7 @@ public class NativeFunctions extends Extension
     {
         PowerManager pm = (PowerManager) mainContext.getSystemService(Context.POWER_SERVICE);
         WakeLock wakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK |
-        PowerManager.ACQUIRE_CAUSES_WAKEUP, "NativeFunctions.class");
+        PowerManager.ACQUIRE_CAUSES_WAKEUP, "Natives.class");
         wakeLock.acquire();
         wakeLock.release();
         wakeLock = null;

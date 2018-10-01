@@ -12,12 +12,12 @@ import com.gerantech.extension.enums.ToastDuration;
 	import lime.system.JNI;
 #end
 
-class NativeFunctions
+class Natives
 {
 	#if (android && openfl)
-	private static var vibrate_jni = JNI.createStaticMethod ("com.gerantech.extension.NativeFunctions", "vibrate", "(I)V");
-	private static var wakeUp_jni = JNI.createStaticMethod ("com.gerantech.extension.NativeFunctions", "wakeUp", "()V");
-	private static var toast_jni = JNI.createStaticMethod ("com.gerantech.extension.NativeFunctions", "toast", "(Ljava/lang/String;I)V");
+	private static var vibrate_jni = JNI.createStaticMethod ("com.gerantech.extension.Natives", "vibrate", "(I)V");
+	private static var wakeUp_jni = JNI.createStaticMethod ("com.gerantech.extension.Natives", "wakeUp", "()V");
+	private static var toast_jni = JNI.createStaticMethod ("com.gerantech.extension.Natives", "toast", "(Ljava/lang/String;I)V");
 	#end
 
 	public static function vibrate(inputValue:Int)

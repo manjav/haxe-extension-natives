@@ -1,5 +1,5 @@
 {
-  "name": "extension-nativefunctions",
+  "name": "extension-natives",
   "url": "",
   "license": "MIT",
   "tags": ["android","games","openfl","awake","vibrate","intent"],
@@ -8,6 +8,5 @@
   "releasenote": "",
   "contributors": ["manjav"],
   "dependencies": {
-
   }
 }

@@ -1,4 +1,4 @@
-extension-nativefunctions
+extension-natives
 =============
 
 Simple OpenFL extension for accessing android native methods.
@@ -12,13 +12,13 @@ Install via
 Add to `project.xml`:
 
 ```xml
-<haxelib name="extension-nativefunctions" if="android" />
+<haxelib name="extension-natives" if="android" />
 ```
 
 And import into your project (haxe) with:
   
 ```Haxe
-    import com.gerantech.extension.NativeFunctions;
+    import com.gerantech.extension.Natives;
 ```
 Exposed methods are currently:
 
@@ -27,7 +27,7 @@ Exposed methods are currently:
     public static function wakeUp():Void;
 ```
 More can be simply added in the java source file, replicating the function and
-corresponding `JNI.createStaticMethod(...)` call in `NativeFunctions.hx`.
+corresponding `JNI.createStaticMethod(...)` call in `Natives.hx`.
   
 ### Contributions
 

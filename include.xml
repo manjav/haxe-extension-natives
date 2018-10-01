@@ -2,7 +2,7 @@
 <project>
 	
 	<!-- Use the following for an Android Java extension, not needed otherwise -->
-	<dependency name="nativefunctions" path="dependencies/android" if="android" />
-	<android extension="com.gerantech.extension.NativeFunctions" />
+	<dependency name="natives" path="dependencies/android" if="android" />
+	<android extension="com.gerantech.extension.Natives" />
 	
 </project>
