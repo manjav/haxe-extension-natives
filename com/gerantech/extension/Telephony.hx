@@ -17,7 +17,6 @@ import lime.system.JNI;
 
 class Telephony {
 	#if (android && openfl)
-	private static var getIMEI_jni = JNI.createStaticMethod ("com.gerantech.extension.Telephony", "getIMEI", "()Ljava/lang/String;");
 	private static var addListener_jni = JNI.createStaticMethod("com.gerantech.extension.Telephony", "addListener", "(Lorg/haxe/lime/HaxeObject;)V", true);
 	#end
 
@@ -28,12 +27,6 @@ class Telephony {
 
 	public function new() {}
 
-	public function getIMEI():String {
-		#if (android && openfl)
-		return getIMEI_jni();
-		#end
-		return null;
-	}
 
 	public function addCallback(callback:TelephonyState->Void):Void {
 		this.callback = callback;

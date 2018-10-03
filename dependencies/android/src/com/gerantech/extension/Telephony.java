@@ -14,11 +14,6 @@ public class Telephony extends Extension
 	private static TelephonyManager manager;
 	private static CustomPhoneStateListener listener;
 
-	public static String getIMEI()
-	{
-		return getManager().getDeviceId();
-	}
-
 	public static void addListener(final HaxeObject callback)
 	{
 		mainActivity.runOnUiThread(new Runnable() { 
