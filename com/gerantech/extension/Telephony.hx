@@ -21,8 +21,8 @@ class Telephony
 {
 
 	#if (android && openfl)
-	private static var getIMEI_jni = JNI.createStaticMethod ("com.gerantech.extension.TelephonyFunctions", "getIMEI", "()Ljava/lang/String;");
-	private static var addListener_jni = JNI.createStaticMethod("com.gerantech.extension.TelephonyFunctions", "addListener", "(Lorg/haxe/lime/HaxeObject;)V", true);
+	private static var getIMEI_jni = JNI.createStaticMethod ("com.gerantech.extension.Telephony", "getIMEI", "()Ljava/lang/String;");
+	private static var addListener_jni = JNI.createStaticMethod("com.gerantech.extension.Telephony", "addListener", "(Lorg/haxe/lime/HaxeObject;)V", true);
 	#end
 
 	private static var _instance:Telephony;

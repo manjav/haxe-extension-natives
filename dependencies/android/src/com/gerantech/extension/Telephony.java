@@ -9,7 +9,7 @@ import android.content.Context;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 
-public class TelephonyFunctions extends Extension
+public class Telephony extends Extension
 {
 	private static TelephonyManager manager;
 	private static CustomPhoneStateListener listener;
