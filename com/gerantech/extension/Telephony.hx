@@ -39,8 +39,9 @@ class Telephony {
 		callback(cast(state, TelephonyState));
 	}
 
-	public static function getInstance():Telephony
-	{
+	public static var instance(get, never):Telephony;
+
+	private static function get_instance():Telephony {
 		if (_instance == null)
 			_instance = new Telephony();
 		return _instance;
