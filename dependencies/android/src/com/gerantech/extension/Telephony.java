@@ -43,8 +43,11 @@ public class Telephony extends Extension
 	
 	private static TelephonyManager getManager() 
 	{
-		if(manager == null)
+		if(manager == null){
+//			PermissionsActivity.extensionContext = mainContext;
+//			if( PermissionsActivity.checkPermission(mainActivity, Manifest.permission.READ_PHONE_STATE, 0) )
 			manager = (TelephonyManager) mainContext.getSystemService(Context.TELEPHONY_SERVICE);
+		}
 
 		return manager;
 	}
