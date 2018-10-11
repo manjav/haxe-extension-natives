@@ -39,6 +39,16 @@ class Telephony {
 		callback(cast(state, TelephonyState));
 	}
 
+	public function getDeviceInfo():DeviceInfo {
+		#if (android && openfl)
+		if (_deviceInfo == null) {
+			var args:String = deviceinfo_jni();
+			_deviceInfo = new DeviceInfo(args.split(","));
+		}
+		#end
+		return _deviceInfo;
+	}
+
 	public static var instance(get, never):Telephony;
 
 	private static function get_instance():Telephony {

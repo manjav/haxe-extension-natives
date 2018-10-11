@@ -6,14 +6,43 @@ import org.haxe.lime.HaxeObject;
 import com.gerantech.extension.listeners.CustomPhoneStateListener;
 
 import android.content.Context;
+import android.os.Build;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Telephony extends Extension
 {
 	private static TelephonyManager manager;
 	private static CustomPhoneStateListener listener;
 
+    public static String getDeviceInfo()
+    {
+		Log.w("LOG_TAG", "DeviceInfo called");
+		String imei = "No IMEI";
+//		try {
+//			imei = getManager().getDeviceId();
+//		}
+//		catch (Exception e) { e.printStackTrace(); }
+		List<String> args = new ArrayList<>();
+		try
+		{
+			 args.add(Build.VERSION.SDK_INT + "");
+			 args.add(Build.MODEL);
+			 args.add(Build.MANUFACTURER);
+			 args.add(Build.DEVICE);
+			 args.add(Build.PRODUCT);
+			 args.add(Build.BRAND);
+			 args.add("No ID");//Settings.Secure.getString(context.getActivity().getContentResolver(), "android_id")
+			 args.add(imei);
+		 }
+	    catch (Exception e) { e.printStackTrace(); }
+		return String.join(",", args);
+    }
+	
 	public static void addListener(final HaxeObject callback)
 	{
 		mainActivity.runOnUiThread(new Runnable() { 
