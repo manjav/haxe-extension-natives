@@ -46,7 +46,7 @@ class Telephony {
 		#if (android && openfl)
 		if (_deviceInfo == null) {
 			var args:String = deviceinfo_jni();
-			_deviceInfo = new DeviceInfo(args.split(","));
+			_deviceInfo = new DeviceInfo(args);
 		}
 		#end
 		return _deviceInfo;

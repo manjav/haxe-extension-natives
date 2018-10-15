@@ -1,33 +1,50 @@
 package com.gerantech.extension;
 
-class DeviceInfo {
-	public var sdkVersion:Int;
-	public var model:String;
-	public var manufacturer:String;
-	public var device:String;
-	public var product:String;
-	public var brand:String;
-	public var id:String;
-	public var imei:String;
+enum abstract DeviceSpec(String) {
+	final BOARD;
+	final BOOTLOADER;
+	final BRAND;
+	final DEVICE;
+	final DISPLAY;
+	final FINGERPRINT;
+	final HARDWARE;
+	final HOST;
+	final ID;
+	final MANUFACTURER;
+	final MODEL;
+	final PRODUCT;
+	final SERIAL;
+	// final[] SUPPORTED_32_BIT_ABIS = null;
+	// final[] SUPPORTED_64_BIT_ABIS = null;
+	// final[] SUPPORTED_ABIS = null;
+	final TAGS;
+	// final long TIME = 0L;
+	final TYPE;
+	final USER;
+	final VERSION_SDK;
+	final VERSION_RELEASE;
+	final IMEI;
+}
 
-	public function new(a:Array<String>) {
-		if (a != null && a.length == 8)
-			update(Std.parseInt(a[0]), a[1], a[2], a[3], a[4], a[5], a[6], a[7]);
+class DeviceInfo {
+	private final map:Map<DeviceSpec, String> = new Map();
+
+	public function new(data:String) {
+		var list = data.split(",");
+		for (i in list) {
+			var kv = i.split(":");
+			this.map[cast(kv[0], DeviceSpec)] = kv[1];
+		}
 	}
 
-	private function update(sdkVersion:Int, model:String, manufacturer:String, device:String, product:String, brand:String, id:String, imei:String):Void {
-		this.sdkVersion = sdkVersion;
-		this.model = model;
-		this.manufacturer = manufacturer;
-		this.device = device;
-		this.product = product;
-		this.brand = brand;
-		this.id = id;
-		this.imei = imei;
+	public function get(key:DeviceSpec):String {
+		return this.map.get(key);
 	}
 
 	public function toString():String {
-		return "sdkVersion:" + sdkVersion + " model:" + model + " manufacturer:" + manufacturer + " device:" + device + " product:" + product + " brand:"
-			+ brand + " id:" + id + " imei:" + imei;
+		var result = "";
+		for (key in this.map.keys())
+			result += (key + ";" + this.map[key] + " ");
+		return result;
 	}
 }
