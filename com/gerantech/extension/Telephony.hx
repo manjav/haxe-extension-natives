@@ -20,8 +20,8 @@ enum abstract TelephonyState(Int) {
 
 class Telephony {
 	#if (android && openfl)
-	private static var addListener_jni = JNI.createStaticMethod("com.gerantech.extension.Telephony", "addListener", "(Lorg/haxe/lime/HaxeObject;)V", true);
-	private static var deviceinfo_jni = JNI.createStaticMethod("com.gerantech.extension.Telephony", "getDeviceInfo", "()Ljava/lang/String;");
+	private static var addListener_jni = JNI.createStaticMethod("com.gerantech.extension.NativeTelephony", "addListener", "(Lorg/haxe/lime/HaxeObject;)V", true);
+	private static var deviceinfo_jni = JNI.createStaticMethod("com.gerantech.extension.NativeTelephony", "getDeviceInfo", "()Ljava/lang/String;");
 	#end
 
 	private static var _instance:Telephony;

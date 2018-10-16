@@ -11,22 +11,17 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Telephony extends Extension
+public class NativeTelephony extends Extension
 {
 	private static TelephonyManager manager;
 	private static CustomPhoneStateListener listener;
 
     public static String getDeviceInfo()
     {
-		Log.w("LOG_TAG", "DeviceInfo called");
 		String imei = "No IMEI";
 //		try {
 //			imei = getManager().getDeviceId();
-//		}
-//		catch (Exception e) { e.printStackTrace(); }
+//		} catch (Exception e) { e.printStackTrace(); }
 		List<String> args = new ArrayList<>();
 		try
 		{
