@@ -1,6 +1,5 @@
 package com.gerantech.extension;
 
-import com.gerantech.extension.enums.ToastDuration;
 #if cpp
 import cpp.Lib;
 #elseif neko
@@ -9,6 +8,11 @@ import neko.Lib;
 #if (android && openfl)
 import lime.system.JNI;
 #end
+
+enum abstract ToastDuration(Int) {
+	var short = 0;
+	var long = 1;
+}
 
 class Natives {
 	#if (android && openfl)

@@ -1,7 +1,5 @@
 package com.gerantech.extension;
 
-import com.gerantech.extension.enums.TelephonyState;
-
 /**
  * ...
  * @author Mansour Djawadi
@@ -14,6 +12,12 @@ import cpp.Lib;
 import lime.system.JNI;
 #end
 
+enum abstract TelephonyState(Int) {
+	var IDLE = 0;
+	var RINGING = 1;
+	var OFFHOOK = 2;
+}
+
 class Telephony {
 	#if (android && openfl)
 	private static var addListener_jni = JNI.createStaticMethod("com.gerantech.extension.Telephony", "addListener", "(Lorg/haxe/lime/HaxeObject;)V", true);
@@ -25,9 +29,7 @@ class Telephony {
 	private var callback:TelephonyState->Void;
 	private var _device:Device;
 
-
 	public function new() {}
-
 
 	public function addCallback(callback:TelephonyState->Void):Void {
 		this.callback = callback;
@@ -44,7 +46,7 @@ class Telephony {
 
 	private function get_device():Device {
 		#if (android && openfl)
-		if (_device == null) 
+		if (_device == null)
 			_device = new Device(deviceinfo_jni());
 		#end
 		return _device;
