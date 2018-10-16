@@ -26,7 +26,7 @@ enum abstract DeviceSpec(String) {
 	final IMEI;
 }
 
-class DeviceInfo {
+class Device {
 	private final map:Map<DeviceSpec, String> = new Map();
 
 	public function new(data:String) {

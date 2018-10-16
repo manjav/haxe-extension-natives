@@ -23,7 +23,7 @@ class Telephony {
 	private static var _instance:Telephony;
 
 	private var callback:TelephonyState->Void;
-	private var _deviceInfo:DeviceInfo;
+	private var _device:Device;
 
 
 	public function new() {}
@@ -40,16 +40,14 @@ class Telephony {
 		callback(cast(state, TelephonyState));
 	}
 
-	public var deviceInfo(get, never):DeviceInfo;
+	public var device(get, never):Device;
 
-	private function get_deviceInfo():DeviceInfo {
+	private function get_device():Device {
 		#if (android && openfl)
-		if (_deviceInfo == null) {
-			var args:String = deviceinfo_jni();
-			_deviceInfo = new DeviceInfo(args);
-		}
+		if (_device == null) 
+			_device = new Device(deviceinfo_jni());
 		#end
-		return _deviceInfo;
+		return _device;
 	}
 
 	public static var instance(get, never):Telephony;
