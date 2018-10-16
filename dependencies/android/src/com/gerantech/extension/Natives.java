@@ -42,6 +42,7 @@ import android.widget.Toast;
    */
 public class Natives extends Extension 
 {
+    public static String LOG_TAG = "LOG_TAG";
     private static KeyguardLock keyguardLock = null;
 
     public static void vibrate(int duration)
