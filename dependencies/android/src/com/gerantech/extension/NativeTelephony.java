@@ -22,20 +22,32 @@ public class NativeTelephony extends Extension
 //		try {
 //			imei = getManager().getDeviceId();
 //		} catch (Exception e) { e.printStackTrace(); }
-		List<String> args = new ArrayList<>();
-		try
-		{
-			 args.add(Build.VERSION.SDK_INT + "");
-			 args.add(Build.MODEL);
-			 args.add(Build.MANUFACTURER);
-			 args.add(Build.DEVICE);
-			 args.add(Build.PRODUCT);
-			 args.add(Build.BRAND);
-			 args.add("No ID");//Settings.Secure.getString(context.getActivity().getContentResolver(), "android_id")
-			 args.add(imei);
-		 }
-	    catch (Exception e) { e.printStackTrace(); }
-		return String.join(",", args);
+		String ret = "";
+		ret += "BOARD:" + Build.BOARD;
+		ret += ",BOOTLOADER:" + Build.BOOTLOADER;
+		ret += ",BRAND:" + Build.BRAND;
+		ret += ",DEVICE:" + Build.DEVICE;
+		ret += ",DISPLAY:" + Build.DISPLAY;
+		ret += ",FINGERPRINT:" + Build.FINGERPRINT;
+		ret += ",HARDWARE:" + Build.HARDWARE;
+		ret += ",HOST:" + Build.HOST;
+		ret += ",ID:" + Build.ID;//Settings.Secure.getString(context.getActivity().getContentResolver(), "android_id")
+		ret += ",MANUFACTURER:" + Build.MANUFACTURER;
+		ret += ",MODEL:" + Build.MODEL;
+		ret += ",PRODUCT:" + Build.PRODUCT;
+		ret += ",SERIAL:" + Build.SERIAL;
+		// final[] SUPPORTED_32_BIT_ABIS = null:" + Build.;
+		// final[] SUPPORTED_64_BIT_ABIS = null:" + Build.;
+		// final[] SUPPORTED_ABIS = null:" + Build.;
+		ret += ",TAGS:" + Build.TAGS;
+		// ret += ",long TIME = 0L:" + Build.;
+		ret += ",TYPE:" + Build.TYPE;
+		ret += ",USER:" + Build.USER;
+		ret += ",VERSION_SDK:" + Build.VERSION.SDK_INT;
+		ret += ",VERSION_RELEASE:" + Build.VERSION.RELEASE;
+		ret += ",IMEI:" + imei;
+		Log.w("LOG_TAG", "DeviceInfo: " + ret);
+		return ret;
     }
 	
 	public static void addListener(final HaxeObject callback)

@@ -18,13 +18,13 @@ enum abstract TelephonyState(Int) {
 	var OFFHOOK = 2;
 }
 
-class Telephony {
+class NativeTelephony {
 	#if (android && openfl)
 	private static var addListener_jni = JNI.createStaticMethod("com.gerantech.extension.NativeTelephony", "addListener", "(Lorg/haxe/lime/HaxeObject;)V", true);
 	private static var deviceinfo_jni = JNI.createStaticMethod("com.gerantech.extension.NativeTelephony", "getDeviceInfo", "()Ljava/lang/String;");
 	#end
 
-	private static var _instance:Telephony;
+	private static var _instance:NativeTelephony;
 
 	private var callback:TelephonyState->Void;
 	private var _device:Device;
@@ -52,11 +52,11 @@ class Telephony {
 		return _device;
 	}
 
-	public static var instance(get, never):Telephony;
+	public static var instance(get, never):NativeTelephony;
 
-	private static function get_instance():Telephony {
+	private static function get_instance():NativeTelephony {
 		if (_instance == null)
-			_instance = new Telephony();
+			_instance = new NativeTelephony();
 		return _instance;
 	}
 }
