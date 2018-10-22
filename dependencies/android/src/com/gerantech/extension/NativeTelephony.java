@@ -46,7 +46,7 @@ public class NativeTelephony extends Extension
 		ret += ",VERSION_SDK:" + Build.VERSION.SDK_INT;
 		ret += ",VERSION_RELEASE:" + Build.VERSION.RELEASE;
 		ret += ",IMEI:" + imei;
-		Log.w("LOG_TAG", "DeviceInfo: " + ret);
+		Log.i(Natives.LOG_TAG, "DeviceInfo: " + ret);
 		return ret;
     }
 	
