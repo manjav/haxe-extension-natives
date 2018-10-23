@@ -19,6 +19,7 @@ class Natives {
 	private static var vibrate_jni = JNI.createStaticMethod("com.gerantech.extension.Natives", "vibrate", "(I)V");
 	private static var wakeUp_jni = JNI.createStaticMethod("com.gerantech.extension.Natives", "wakeUp", "()V");
 	private static var toast_jni = JNI.createStaticMethod("com.gerantech.extension.Natives", "toast", "(Ljava/lang/String;I)V");
+	private static var intent_jni = JNI.createStaticMethod("com.gerantech.extension.Natives", "runIntent", "(ILjava/lang/String;Ljava/lang/String;)V");
 	#end
 
 	public static function vibrate(inputValue:Int) {
@@ -36,6 +37,12 @@ class Natives {
 	public static function toast(text:String, duration:ToastDuration):Void {
 		#if (android && openfl)
 		toast_jni(text, duration);
+		#end
+	}
+
+	public static function shareText(subject:String, text:String):Void {
+		#if (android && openfl)
+		intent_jni("runIntent", 0, subject, text);
 		#end
 	}
 }
