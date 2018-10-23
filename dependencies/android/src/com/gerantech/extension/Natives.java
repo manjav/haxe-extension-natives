@@ -7,10 +7,12 @@ import android.app.KeyguardManager;
 import android.app.KeyguardManager.KeyguardLock;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.os.Vibrator;
+import android.util.Log;
 import android.widget.Toast;
 
 
@@ -62,7 +64,7 @@ public class Natives extends Extension
             keyguardLock = keyguardManager.newKeyguardLock(Activity.KEYGUARD_SERVICE); 
         keyguardLock.disableKeyguard();
     }
-
+    
     public static void toast(final String text, final int duration) {
     	try 
 		{
@@ -72,15 +74,32 @@ public class Natives extends Extension
     			}
     		});
 		} catch (Exception e) { e.printStackTrace(); }
-		} 
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
     }
-    
-    
-    
+
+    public static void runIntent(final int type, final String subject, final String data) {
+        try {
+            Intent intent = null;
+            Log.i(LOG_TAG, type + "");
+            switch (type) {
+                case 0: // share
+                    intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+                    intent.putExtra(Intent.EXTRA_TEXT, data);
+                    break;
+                case 1: // open app
+                    intent = mainActivity.getPackageManager().getLaunchIntentForPackage(subject);
+                    break;
+                case 2: // default
+                    intent = new Intent(subject);
+                    if (data != null)
+                        intent.setData(Uri.parse(data));
+                    break;
+            }
+            mainActivity.startActivity(intent);
+
+        } catch (Exception e) { e.printStackTrace(); }
+    }
     
     
     
