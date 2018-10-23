@@ -45,13 +45,11 @@ public class Natives extends Extension
     public static String LOG_TAG = "LOG_TAG";
     private static KeyguardLock keyguardLock = null;
 
-    public static void vibrate(int duration)
-    {
+    public static void vibrate(int duration) {
         ((Vibrator) mainContext.getSystemService(Context.VIBRATOR_SERVICE)).vibrate(duration);
     }
 
-    public static void wakeUp()
-    {
+    public static void wakeUp() {
         PowerManager pm = (PowerManager) mainContext.getSystemService(Context.POWER_SERVICE);
         WakeLock wakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK |
         PowerManager.ACQUIRE_CAUSES_WAKEUP, "Natives.class");
@@ -62,13 +60,10 @@ public class Natives extends Extension
         KeyguardManager keyguardManager = (KeyguardManager) mainActivity.getSystemService(Activity.KEYGUARD_SERVICE); 
         if(keyguardLock == null)
             keyguardLock = keyguardManager.newKeyguardLock(Activity.KEYGUARD_SERVICE); 
-
         keyguardLock.disableKeyguard();
     }
 
-    
-    public static void toast(final String text, final int duration)
-    {
+    public static void toast(final String text, final int duration) {
     	try 
 		{
     		mainActivity.runOnUiThread(new Runnable() {
@@ -76,6 +71,7 @@ public class Natives extends Extension
     				Toast.makeText(mainContext, text, duration).show();	
     			}
     		});
+		} catch (Exception e) { e.printStackTrace(); }
 		} 
 		catch (Exception e)
 		{
