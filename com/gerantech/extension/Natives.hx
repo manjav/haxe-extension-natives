@@ -42,7 +42,9 @@ class Natives {
 
 	public static function shareText(subject:String, text:String):Void {
 		#if (android && openfl)
-		intent_jni("runIntent", 0, subject, text);
+		intent_jni(0, subject, text);
+		#end
+	}
 		#end
 	}
 }
