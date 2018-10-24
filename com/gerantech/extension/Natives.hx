@@ -45,6 +45,11 @@ class Natives {
 		intent_jni(0, subject, text);
 		#end
 	}
+
+	public static function launchAPK(packageName:String):Void {
+		#if (android && openfl)
+		intent_jni(1, packageName, "");
+		#end
 		#end
 	}
 }
