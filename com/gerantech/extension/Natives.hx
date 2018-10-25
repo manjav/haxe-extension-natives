@@ -50,6 +50,11 @@ class Natives {
 		#if (android && openfl)
 		intent_jni(1, packageName, "");
 		#end
+	}
+
+	public static function runIntent(action:String, url:String = null):Void {
+		#if (android && openfl)
+		intent_jni(2, action, url);
 		#end
 	}
 }
