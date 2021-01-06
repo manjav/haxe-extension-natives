@@ -48,6 +48,8 @@ class NativeTelephony {
 		#if (android && openfl)
 		if (_device == null)
 			_device = new Device(deviceinfo_jni());
+		#else
+			_device = new Device("");
 		#end
 		return _device;
 	}
